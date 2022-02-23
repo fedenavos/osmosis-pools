@@ -1,0 +1,29 @@
+<div class="container">
+
+    <img src="../../assets/img/osmosis-logo.jpg" alt="Osmosis logo" class="center">
+    
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Assets</th>
+                <th scope="col"></th>
+                <th scope="col" (click)="sortTable(14)" clickable>APR 14d</th>
+                <th scope="col" (click)="sortTable(7)" clickable>APR 7d</th>
+                <th scope="col" (click)="sortTable(1)" clickable>APR 1d</th>
+                <th scope="col">Liquidity</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let pool of pools">
+                <th scope="row">{{ pool.id }}</th>
+                <td colspan="2">{{ pool.asset1 }} - {{ pool.asset2 }}</td>
+                <td>{{ pool.apr14 | number: '1.2-2' }}%</td>
+                <td>{{ pool.apr7 | number: '1.2-2' }}%</td>
+                <td>{{ pool.apr1 | number: '1.2-2' }}%</td>
+                <td>$ {{ pool.liquidity | number: '1.0-0' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
