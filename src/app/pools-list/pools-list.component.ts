@@ -10,9 +10,11 @@ import { Pool } from '../models/Pool';
 
 export class PoolsListComponent {
 
-  url: string = "https://api-osmosis.imperator.co"
+  url: string = "https://api-osmosis.imperator.co";
 
-  pools: Pool[] = []
+  pools: Pool[] = [];
+
+  sorted: boolean = false;
 
   constructor(private http: HttpClient) {
 
@@ -83,26 +85,70 @@ export class PoolsListComponent {
 
   sortTable(i: number): void {
 
-    switch(i){
-      case 14: {
-        this.pools.sort((a: any, b: any) => {
-          return (b.apr14 - a.apr14);
-        });
-        break;
+    if(!this.sorted) {
+
+      switch(i){
+        case 14: {
+          this.pools.sort((a: any, b: any) => {
+            return (b.apr14 - a.apr14);
+          });
+          break;
+        }
+        case 7: {
+          this.pools.sort((a: any, b: any) => {
+            return (b.apr7 - a.apr7);
+          });
+          break;
+        }
+        case 1: {
+          this.pools.sort((a: any, b: any) => {
+            return (b.apr1 - a.apr1);
+          });
+          break;
+        }
+        case 0: {
+          this.pools.sort((a: any, b: any) => {
+            return (b.liquidity - a.liquidity);
+          });
+          break;
+        }
+        default: break;
       }
-      case 7: {
-        this.pools.sort((a: any, b: any) => {
-          return (b.apr7 - a.apr7);
-        });
-        break;
+
+      this.sorted = true;
+
+    } else {
+
+      switch(i){
+        case 14: {
+          this.pools.sort((a: any, b: any) => {
+            return (a.apr14 - b.apr14);
+          });
+          break;
+        }
+        case 7: {
+          this.pools.sort((a: any, b: any) => {
+            return (a.apr7 - b.apr7);
+          });
+          break;
+        }
+        case 1: {
+          this.pools.sort((a: any, b: any) => {
+            return (a.apr1 - b.apr1);
+          });
+          break;
+        }
+        case 0: {
+          this.pools.sort((a: any, b: any) => {
+            return (a.liquidity - b.liquidity);
+          });
+          break;
+        }
+        default: break;
       }
-      case 1: {
-        this.pools.sort((a: any, b: any) => {
-          return (b.apr1 - a.apr1);
-        });
-        break;
-      }
-      default: break;
+
+      this.sorted = false
+
     }
 
   }

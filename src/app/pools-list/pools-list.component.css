@@ -30,11 +30,11 @@ a:active .th-link{
 }
 table { 
 	border-collapse: collapse;
-	width: 100%;  
+	width: 100%; 
 }
 td,
 th { 
-	padding: 4px; 
+	padding: 15px; 
 	overflow: hidden;
 	text-align: left;
 	vertical-align: middle;
