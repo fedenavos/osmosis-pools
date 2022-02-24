@@ -1,4 +1,12 @@
-<div class="container">
+<div *ngIf="loading" class="loader-wrapper">
+    <div class="loadingio-spinner-interwind-ikpwn81a08l"><div class="ldio-ijw3v7lq8d">
+    <div><div><div><div></div></div></div><div><div><div></div></div></div></div>
+    </div></div><br>
+
+    <div>Loading pools...</div>
+</div>
+
+<div class="container" *ngIf="!loading">
 
     <img src="../../assets/img/osmosis-logo.jpg" alt="Osmosis logo" class="center">
     
