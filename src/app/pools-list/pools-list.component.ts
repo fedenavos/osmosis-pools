@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Pool } from '../models/Pool';
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-pools-list',
@@ -9,6 +10,8 @@ import { Pool } from '../models/Pool';
 })
 
 export class PoolsListComponent implements OnInit {
+
+  faHeart = faHeart;
 
   url: string = "https://api-osmosis.imperator.co";
 
