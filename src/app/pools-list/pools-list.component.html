@@ -8,7 +8,6 @@
         </caption>
         <thead>
             <tr>
-                <th scope="col">#</th>
                 <th scope="col">Assets</th>
                 <th scope="col" (click)="sortTable(14)" clickable>
                     <a href="#" class="sort-by th-link">APR 14d</a>
@@ -27,8 +26,10 @@
         </thead>
         <tbody >
             <tr *ngFor="let pool of pools">
-                <th scope="row">{{ pool.id }}</th>
-                <td>{{ pool.asset1 }} - {{ pool.asset2 }}</td>
+                <td>
+                    {{ pool.asset1 }} <img [src]="getImage(pool.asset1)" (error)="updateUrl($event)" alt="Logo asset 1" style="width: 36px; height: 36px;">
+                    - {{ pool.asset2 }} <img [src]="getImage(pool.asset2)" (error)="updateUrl($event)" alt="Logo asset 2" style="width: 36px; height: 36px;">                   
+                </td>
                 <td>{{ pool.apr14 | number: '1.2-2' }}%</td>
                 <td>{{ pool.apr7 | number: '1.2-2' }}%</td>
                 <td>{{ pool.apr1 | number: '1.2-2' }}%</td>

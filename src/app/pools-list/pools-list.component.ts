@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Pool } from '../models/Pool';
 
@@ -8,7 +8,7 @@ import { Pool } from '../models/Pool';
   styleUrls: ['./pools-list.component.css']
 })
 
-export class PoolsListComponent {
+export class PoolsListComponent implements OnInit{
 
   url: string = "https://api-osmosis.imperator.co";
 
@@ -16,11 +16,15 @@ export class PoolsListComponent {
 
   sorted: boolean = false;
 
-  constructor(private http: HttpClient) {
 
+  constructor(private http: HttpClient) {}
+
+  ngOnInit(): void {
+      
     this.getPools();
 
   }
+
 
   getPools(): void{
 
@@ -151,6 +155,30 @@ export class PoolsListComponent {
 
     }
 
+  }
+
+  getImage(symbol: string): string {
+
+    let urlImg = 'https://app.osmosis.zone/public/assets/tokens/';
+
+    symbol = symbol.toLowerCase();
+
+    if(symbol == 'atom') symbol = 'cosmos';
+    if(symbol == 'osmo') symbol = 'osmosis';
+    if(symbol == 'xki') symbol = 'ki';
+    if(symbol == 'like') symbol = 'likecoin';
+
+    urlImg += symbol + '.svg';
+
+    return urlImg;
+
+  }
+
+  updateUrl(event: any) {
+
+    let newUrl = event.srcElement.src.slice(0, -3) + 'png';
+    event.srcElement.src = newUrl;
+    
   }
 
 }
