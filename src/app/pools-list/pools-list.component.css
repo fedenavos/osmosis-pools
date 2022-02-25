@@ -1,4 +1,11 @@
-* {
+h1 {
+  padding: 30px;
+  text-decoration: underline;
+  text-align: center;
+  font-family: 'Inter', ui-sans-serif, system-ui;
+}
+
+div, p, a {
   color: white;
   font-size: large;
   font-family: 'Inter', ui-sans-serif, system-ui;
@@ -206,7 +213,7 @@ Footer
 
 footer {
   background-color: #212529;
-  font-size: 1.5em;
+  font-size: 1.2em;
   text-align: center;
   padding: 3%;
 }

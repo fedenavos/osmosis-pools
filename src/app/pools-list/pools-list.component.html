@@ -10,43 +10,47 @@
 
     <div class="container-fluid">
         <img src="../../assets/img/osmosis-logo.jpg" alt="Osmosis logo" class="center">
+
+        <h1>Pools with more than 1M USD in liquidity</h1>
         
-        <table class="table table-responsive table-dark table-striped table-hover table-bordered container">
-            <caption>
-                List of Osmosis pools with more than $1.000.000 of liquidity.
-            </caption>
-            <thead>
-                <tr>
-                    <th scope="col">Assets</th>
-                    <th scope="col" (click)="sortTable(14)" clickable>
-                        <a href="#" class="sort-by th-link">APR 14d</a>
-                    </th>
-                    <th scope="col" (click)="sortTable(7)" clickable>
-                        <a href="#" class="sort-by th-link">APR 7d</a>
-                    </th>
-                    <th scope="col" (click)="sortTable(1)" clickable>
-                        <a href="#" class="sort-by th-link">APR 1d</a>
-                    </th>
-                    <th scope="col" (click)="sortTable(0)" clickable>
-                        <a href="#" class="sort-by th-link">Liquidity</a>
-                    </th>
-                    <th scope="col"></th>
-                </tr>
-            </thead>
-            <tbody >
-                <tr *ngFor="let pool of pools">
-                    <td>
-                        {{ pool.asset1 }} <img [src]="getImage(pool.asset1)" (error)="updateUrl($event)" alt="Logo asset 1" style="width: 36px; height: 36px;">
-                        - {{ pool.asset2 }} <img [src]="getImage(pool.asset2)" (error)="updateUrl($event)" alt="Logo asset 2" style="width: 36px; height: 36px;">                   
-                    </td>
-                    <td>{{ pool.apr14 | number: '1.2-2' }}%</td>
-                    <td>{{ pool.apr7 | number: '1.2-2' }}%</td>
-                    <td>{{ pool.apr1 | number: '1.2-2' }}%</td>
-                    <td>$ {{ pool.liquidity | number: '1.0-0' }}</td>
-                    <td><a href="https://app.osmosis.zone/pool/{{ pool.id }}" target="_blank">Add liquidity</a></td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="table-responsive-md">
+            <table class="table table-dark table-striped table-hover table-bordered container">
+                <caption>
+                    List of Osmosis pools with more than $1.000.000 in liquidity.
+                </caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Assets</th>
+                        <th scope="col" (click)="sortTable(14)" clickable>
+                            <a href="#" class="sort-by th-link">APR 14d</a>
+                        </th>
+                        <th scope="col" (click)="sortTable(7)" clickable>
+                            <a href="#" class="sort-by th-link">APR 7d</a>
+                        </th>
+                        <th scope="col" (click)="sortTable(1)" clickable>
+                            <a href="#" class="sort-by th-link">APR 1d</a>
+                        </th>
+                        <th scope="col" (click)="sortTable(0)" clickable>
+                            <a href="#" class="sort-by th-link">Liquidity</a>
+                        </th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody >
+                    <tr *ngFor="let pool of pools">
+                        <td>
+                            {{ pool.asset1 }} <img [src]="getImage(pool.asset1)" (error)="updateUrl($event)" alt="Logo asset 1" style="width: 36px; height: 36px;">
+                            - {{ pool.asset2 }} <img [src]="getImage(pool.asset2)" (error)="updateUrl($event)" alt="Logo asset 2" style="width: 36px; height: 36px;">                   
+                        </td>
+                        <td>{{ pool.apr14 | number: '1.2-2' }}%</td>
+                        <td>{{ pool.apr7 | number: '1.2-2' }}%</td>
+                        <td>{{ pool.apr1 | number: '1.2-2' }}%</td>
+                        <td>$ {{ pool.liquidity | number: '1.0-0' }}</td>
+                        <td><a href="https://app.osmosis.zone/pool/{{ pool.id }}" target="_blank">Add liquidity</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 
 
