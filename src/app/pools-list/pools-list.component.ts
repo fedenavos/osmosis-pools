@@ -44,7 +44,7 @@ export class PoolsListComponent implements OnInit {
             let pool = new Pool(
               i, resp[i][0].symbol, resp[i][1].symbol, resp[i][0].liquidity
             )
-            if (pool.liquidity >= 1000000) {
+            if (pool.liquidity >= 300000) {
               this.pools.push(pool);
             }
 
@@ -78,6 +78,7 @@ export class PoolsListComponent implements OnInit {
             if (iApr == -1) {
               remove = true
               iApr = 0;
+              console.log(this.pools[i]);
             };
             this.pools[i].apr14 = aprList[iApr].apr_14d;
             this.pools[i].apr7 = aprList[iApr].apr_7d;
