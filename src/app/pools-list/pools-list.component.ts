@@ -167,16 +167,16 @@ export class PoolsListComponent implements OnInit {
 
   getImage(symbol: string): string {
 
-    let urlImg = 'https://app.osmosis.zone/public/assets/tokens/';
+    let urlImg = 'https://app.osmosis.zone/_next/image?url=%2Ftokens%2F';
 
     symbol = symbol.toLowerCase();
 
-    if (symbol == 'atom') symbol = 'cosmos';
-    if (symbol == 'osmo') symbol = 'osmosis';
-    if (symbol == 'xki') symbol = 'ki';
-    if (symbol == 'like') symbol = 'likecoin';
+    // if (symbol == 'atom') symbol = 'cosmos';
+    // if (symbol == 'osmo') symbol = 'osmosis';
+    // if (symbol == 'xki') symbol = 'ki';
+    // if (symbol == 'like') symbol = 'likecoin';
 
-    urlImg += symbol + '.svg';
+    urlImg += symbol + '.svg&w=48&q=75';
 
     return urlImg;
 
@@ -184,7 +184,7 @@ export class PoolsListComponent implements OnInit {
 
   updateUrl(event: any) {
 
-    let newUrl = event.srcElement.src.slice(0, -3) + 'png';
+    let newUrl = event.srcElement.src.slice(0, -14) + '.png&w=48&q=75';
     event.srcElement.src = newUrl;
 
   }
