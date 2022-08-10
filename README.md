@@ -4,7 +4,11 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Description
 
-This project aims to facilitate the visualization of the pools from Osmosis AMM (https://app.osmosis.zone/pools). It shows a list of the pools and their info in a table format. You can sort them by APR by clicking on the table header so you can choose which is the best option for adding liquidity.
+This project aims to facilitate the visualization of the pools from [Osmosis AMM](https://app.osmosis.zone/pools). It shows a list of the pools and their info in a table format. You can sort them by APR by clicking on the table header so you can choose which is the best option for adding liquidity.
+
+## Link
+
+[You can check the page here.](https://osmosispools.netlify.app/)
 
 ## Development server
 
